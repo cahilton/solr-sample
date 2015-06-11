@@ -122,14 +122,14 @@
   
    <!-- The kind of report this is using its code such as a radiology, pathology, general etc -->
    <field name="report_type" type="string" indexed="true" stored="true" />
-   <field name="report_type_system" type="int" indexed="true" stored="true" />
+   <field name="report_type_system" type="string" indexed="true" stored="true" />
 
    <!-- date fields-->
    <field name="report_time" type="tdate" indexed="true" stored="true" />
 
    <!-- e.g.institution -->
    <field name="source" type="string" indexed="true" stored="true"/>
-   <field name="source_system" type="int" indexed="true" stored="true" />
+   <field name="source_system" type="string" indexed="true" stored="true" />
 
    <!-- e.g. patient id -->
    <field name="subject_id"  type="string" indexed="true" stored="true"/>
@@ -164,17 +164,21 @@
        a "*" only at the start or the end.  -->
 
   <!-- Generic identifiers that are not in the schema -->
-  <dynamicField name="id_*" type="int"    indexed="true"  stored="true" />
+  <dynamicField name="*_id" type="int"    indexed="true"  stored="true" />
+
+  <!-- Generic code systems -->
+  <dynamicField name="*_system"  type="string"  indexed="true"  stored="true" />
 
   <!-- other meta data about the subject or report -->
-  <dynamicField name="m_*"  type="string"  indexed="true"  stored="true" />
-  <dynamicField name="mm_*"  type="string"  indexed="true"  stored="true" multiValued="true"/>
+  <dynamicField name="*_attr"  type="string"  indexed="true"  stored="true" />
+  <dynamicField name="*_mv_attr"  type="string"  indexed="true"  stored="true" multiValued="true"/>
 
   <!-- other date fields -->
-  <dynamicField name="date_*"  type="date"    indexed="true"  stored="true"/>
+  <dynamicField name="*_date"  type="date"    indexed="true"  stored="true"/>
+  <dynamicField name="*_time"  type="date"    indexed="true"  stored="true"/>
 
   <!-- section/chapter/group info -->
-  <dynamicField name="sect_*" type="text_general" indexed="true" stored="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true" />
+  <dynamicField name="sect_*" type="text_general" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true" />
    
    <!--<dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
    <dynamicField name="*_is" type="int"    indexed="true"  stored="true"  multiValued="true"/>
