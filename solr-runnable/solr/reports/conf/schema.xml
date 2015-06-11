@@ -178,7 +178,7 @@
   <dynamicField name="*_time"  type="date"    indexed="true"  stored="true"/>
 
   <!-- section/chapter/group info -->
-  <dynamicField name="sect_*" type="text_general" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true" />
+  <dynamicField name="*_section" type="text_general" indexed="true" stored="false" multiValued="true" termVectors="true" termPositions="true" termOffsets="true" />
    
    <!--<dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
    <dynamicField name="*_is" type="int"    indexed="true"  stored="true"  multiValued="true"/>
